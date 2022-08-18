@@ -21,20 +21,19 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-//    Add a New User
+//    Add a New Users
     @PostMapping(value = "/addUser")
     public UserDataTransferObject insertUser(@RequestBody UserDataTransferObject userDataTransferObject){
        return userService.SaveUser(userDataTransferObject);
     }
 
     @PutMapping(value = "/updateUser")
-    public String updateUser(){
-        return  "User Updated Successfully";
+    public UserDataTransferObject updateUser(@RequestBody UserDataTransferObject userDataTransferObjecte){
+        return  userService.updateUser((userDataTransferObjecte));
     }
 
     @DeleteMapping(value = "/deleteUser")
     public String deleteUser(){
         return "User Deleted Successfully";
     }
-
 }

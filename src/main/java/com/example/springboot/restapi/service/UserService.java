@@ -27,5 +27,9 @@ public class UserService {
         List<User>userList=userRepository.findAll();
         return modelMapper.map(userList, new TypeToken<List<UserDataTransferObject>>(){}.getType());
     }
+    public UserDataTransferObject  updateUser(UserDataTransferObject userDataTransferObject){
+        userRepository.save(modelMapper.map(userDataTransferObject , User.class));
+        return userDataTransferObject;
+    }
 
 }

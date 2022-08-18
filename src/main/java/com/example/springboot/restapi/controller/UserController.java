@@ -15,10 +15,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+//  Fetch All Users
     @GetMapping(value = "/getUsers")
     public List<UserDataTransferObject> getUser(){
         return userService.getAllUsers();
     }
+
+//    Add a New User
     @PostMapping(value = "/addUser")
     public UserDataTransferObject insertUser(@RequestBody UserDataTransferObject userDataTransferObject){
        return userService.SaveUser(userDataTransferObject);
